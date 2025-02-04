@@ -1,18 +1,9 @@
 const palindromes = function (word) {
-    //remove spaces
-    word = word.replaceAll(" ", "");
+    const alphanumerical = 'abcdefghijklmnopqrstuvwxyz0123456789';
 
-    //turn the word into an array, filter out punctuation and make it all lowercase
     let word_filtered = word.split("")
-    .filter((item) => {
-        if (item == "," || item == "." || item == "!" || item == "?" || item == ";" || item == ":") {
-            return false;
-        }
-        else {
-            return true;
-        }
-    })
-    .map((item) => item.toLowerCase());
+    .map((item) => item.toLowerCase())
+    .filter((item) => alphanumerical.includes(item));
     
     //reverse the word (using .slice() to create a copy and not reverse the original array)
     let word_reversed = word_filtered.slice().reverse().join("");
